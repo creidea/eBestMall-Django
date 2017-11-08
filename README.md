@@ -17,7 +17,7 @@ composer create-project hongyukeji/ebestmall ebestmall dev-master
 
 # 运行环境
 
-* Python版本：>= 3.6.3
+* Python版本：>= 3.6
 * Django版本：>= 2.0
 
 # 系统开发
