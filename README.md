@@ -40,7 +40,21 @@ composer create-project hongyukeji/ebestmall ebestmall dev-master
 
 # 命令行
 
+* Python
 ```
 python -m django --version      // 查看django版本号
 python manage.py runserver 8080     // 启动Django开发服务器
+```
+
+* Pip
+```
+pip install --pre django    // Django-2.0
+pip install mysqlclient     // MySQL数据库驱动 https://www.lfd.uci.edu/~gohlke/pythonlibs/#mysqlclient
+```
+
+* Migrations
+```
+startapp
+makemigrations
+migrate
 ```

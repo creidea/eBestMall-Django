@@ -23,7 +23,7 @@ sys.path.insert(0, os.path.join(BASE_DIR, 'extra_apps'))
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '*q0)d_411p*nd0##!dymeft#wr=un7e#wjrz-w49^8xjec&#6^'
+SECRET_KEY = '=@0wujy_y%1$m_nt736*lw^*=4=1do+uh7ilhs5^8^p0^)%(n@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -33,13 +33,17 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
     'users.apps.UsersConfig',
+    'DjangoUeditor',
+    'user_operation.apps.UserOperationConfig',
+    'goods.apps.GoodsConfig',
+    'trade.apps.TradeConfig',
 ]
 
 MIDDLEWARE = [
@@ -76,9 +80,18 @@ WSGI_APPLICATION = 'eBestMall.wsgi.application'
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # }
+
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ebestmall-django',
+        'USER': 'root',
+        'PASSWORD': '123456',
+        'HOST': '127.0.0.1',
+        'OPTIONS': {'init_command': 'SET storage_engine=INNODB'},
     }
 }
 
@@ -103,19 +116,28 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'en-us'
+#
+# TIME_ZONE = 'UTC'
 
-TIME_ZONE = 'UTC'
+LANGUAGE_CODE = 'zh-hans'
+
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
+
+# USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = (os.path.join(BASE_DIR, 'media'),)
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
